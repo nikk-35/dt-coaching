@@ -127,6 +127,199 @@ function GlowingOrb({ className }: { className?: string }) {
 }
 
 // ============================================================================
+// FITNESS ICONS (Floating Background)
+// ============================================================================
+
+function FloatingFitnessIcons() {
+  const icons = [
+    { icon: '🏋️', x: '10%', y: '20%', delay: 0 },
+    { icon: '💪', x: '85%', y: '15%', delay: 1 },
+    { icon: '🔥', x: '75%', y: '70%', delay: 2 },
+    { icon: '⚡', x: '15%', y: '75%', delay: 0.5 },
+    { icon: '🎯', x: '90%', y: '45%', delay: 1.5 },
+    { icon: '💯', x: '5%', y: '50%', delay: 2.5 },
+  ];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {icons.map((item, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-4xl opacity-10"
+          style={{ left: item.x, top: item.y }}
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 10, -10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 6,
+            delay: item.delay,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        >
+          {item.icon}
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+// ============================================================================
+// ANIMATED DUMBBELL
+// ============================================================================
+
+function AnimatedDumbbell({ className }: { className?: string }) {
+  return (
+    <motion.svg
+      className={className}
+      viewBox="0 0 100 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      animate={{ rotate: [0, 5, -5, 0] }}
+      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+    >
+      {/* Left weight */}
+      <motion.rect
+        x="5" y="5" width="15" height="30" rx="3"
+        fill="url(#gradient)"
+        animate={{ scaleY: [1, 1.1, 1] }}
+        transition={{ duration: 1, repeat: Infinity }}
+      />
+      <rect x="0" y="10" width="25" height="20" rx="3" fill="#333" />
+      
+      {/* Bar */}
+      <rect x="25" y="17" width="50" height="6" rx="2" fill="#444" />
+      
+      {/* Right weight */}
+      <motion.rect
+        x="80" y="5" width="15" height="30" rx="3"
+        fill="url(#gradient)"
+        animate={{ scaleY: [1, 1.1, 1] }}
+        transition={{ duration: 1, repeat: Infinity, delay: 0.5 }}
+      />
+      <rect x="75" y="10" width="25" height="20" rx="3" fill="#333" />
+      
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f97316" />
+          <stop offset="100%" stopColor="#dc2626" />
+        </linearGradient>
+      </defs>
+    </motion.svg>
+  );
+}
+
+// ============================================================================
+// HEARTBEAT LINE
+// ============================================================================
+
+function HeartbeatLine({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 200 50" fill="none">
+      <motion.path
+        d="M0 25 L30 25 L40 10 L50 40 L60 15 L70 35 L80 25 L200 25"
+        stroke="url(#heartGradient)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        fill="none"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 1 }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <defs>
+        <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#f97316" stopOpacity="0" />
+          <stop offset="50%" stopColor="#f97316" />
+          <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+// ============================================================================
+// PROGRESS RING
+// ============================================================================
+
+function ProgressRing({ progress, size = 80, label }: { progress: number; size?: number; label: string }) {
+  const strokeWidth = 6;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = radius * 2 * Math.PI;
+  const offset = circumference - (progress / 100) * circumference;
+
+  return (
+    <div className="relative" style={{ width: size, height: size }}>
+      <svg className="transform -rotate-90" width={size} height={size}>
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke="#27272a"
+          strokeWidth={strokeWidth}
+          fill="none"
+        />
+        <motion.circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke="url(#ringGradient)"
+          strokeWidth={strokeWidth}
+          fill="none"
+          strokeLinecap="round"
+          initial={{ strokeDashoffset: circumference }}
+          animate={{ strokeDashoffset: offset }}
+          transition={{ duration: 2, ease: 'easeOut' }}
+          style={{ strokeDasharray: circumference }}
+        />
+        <defs>
+          <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f97316" />
+            <stop offset="100%" stopColor="#dc2626" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-xs text-zinc-400">{label}</span>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// ENERGY PARTICLES
+// ============================================================================
+
+function EnergyParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-orange-500 rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -100],
+            opacity: [0, 1, 0],
+            scale: [0, 1, 0],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            delay: Math.random() * 5,
+            repeat: Infinity,
+            ease: 'easeOut',
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ============================================================================
 // NAVIGATION
 // ============================================================================
 
@@ -269,6 +462,12 @@ function HeroSection() {
         
         {/* Animated Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black,transparent)]" />
+        
+        {/* Floating Fitness Icons */}
+        <FloatingFitnessIcons />
+        
+        {/* Energy Particles */}
+        <EnergyParticles />
       </div>
 
       <motion.div style={{ y, opacity, scale }} className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -419,6 +618,16 @@ function ServicesSection() {
     <section id="leistungen" ref={ref} className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-zinc-950" />
       <GlowingOrb className="w-[500px] h-[500px] bg-orange-500/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      
+      {/* Heartbeat Line */}
+      <div className="absolute top-20 left-0 right-0 opacity-20">
+        <HeartbeatLine className="w-full h-12" />
+      </div>
+      
+      {/* Animated Dumbbell */}
+      <div className="absolute bottom-20 right-10 opacity-10">
+        <AnimatedDumbbell className="w-40 h-16" />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -498,6 +707,22 @@ function TransformationSection() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-orange-900/30 via-black to-black" />
       </div>
+      
+      {/* Floating Icons */}
+      <motion.div 
+        className="absolute top-20 left-10 text-6xl opacity-10"
+        animate={{ rotate: [0, 360] }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+      >
+        ⚡
+      </motion.div>
+      <motion.div 
+        className="absolute bottom-20 right-10 text-6xl opacity-10"
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        🔥
+      </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -627,6 +852,20 @@ function AboutSection() {
   return (
     <section id="ueber" ref={ref} className="relative py-32 overflow-hidden bg-zinc-950">
       <GlowingOrb className="w-[600px] h-[600px] bg-orange-500/10 -top-1/4 -right-1/4" />
+      
+      {/* Animated Dumbbell */}
+      <div className="absolute top-40 left-10 opacity-5">
+        <AnimatedDumbbell className="w-32 h-12" />
+      </div>
+      
+      {/* Floating Muscle Icon */}
+      <motion.div 
+        className="absolute bottom-40 right-20 text-8xl opacity-5"
+        animate={{ y: [0, -15, 0], rotate: [0, 5, -5, 0] }}
+        transition={{ duration: 4, repeat: Infinity }}
+      >
+        💪
+      </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
