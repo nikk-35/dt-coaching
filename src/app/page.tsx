@@ -286,11 +286,10 @@ function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] mb-6"
+          className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] mb-6"
         >
-          <span className="block text-white">DEIN</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 animate-gradient">
-            KÖRPER
+          <span className="block text-white">
+            DEIN <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 animate-gradient">KÖRPER</span>
           </span>
           <span className="block text-zinc-400">DEIN POTENZIAL</span>
         </motion.h1>
