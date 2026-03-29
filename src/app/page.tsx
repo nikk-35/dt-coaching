@@ -524,9 +524,11 @@ function TransformationSection() {
               className="relative group"
             >
               <div className="aspect-[3/4] rounded-3xl bg-gradient-to-b from-zinc-800 to-zinc-900 overflow-hidden border border-zinc-800">
-                <div className="w-full h-full flex items-center justify-center text-zinc-600">
-                  <span className="text-xl">Vorher-Bild</span>
-                </div>
+                <img 
+                  src="/vorher.jpg" 
+                  alt="David Trebtau vorher - 200kg"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-4 left-4 right-4 bg-zinc-900/90 backdrop-blur-sm rounded-2xl p-4 border border-zinc-800">
                 <p className="text-3xl font-black text-zinc-400">200kg</p>
@@ -564,9 +566,11 @@ function TransformationSection() {
               className="relative group"
             >
               <div className="aspect-[3/4] rounded-3xl bg-gradient-to-b from-orange-500/20 to-zinc-900 overflow-hidden border border-orange-500/30 shadow-2xl shadow-orange-500/20">
-                <div className="w-full h-full flex items-center justify-center text-zinc-600">
-                  <span className="text-xl">Nachher-Bild</span>
-                </div>
+                <img 
+                  src="/nachher.jpg" 
+                  alt="David Trebtau nachher - 90kg"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-4 left-4 right-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl p-4 shadow-xl shadow-orange-500/30">
                 <p className="text-3xl font-black text-white">90kg</p>
