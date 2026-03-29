@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,10 +7,10 @@ const inter = Inter({
   subsets: ["latin", "latin-ext"],
 });
 
-const oswald = Oswald({
-  variable: "--font-oswald",
+const montserrat = Montserrat({
+  variable: "--font-display",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className="scroll-smooth">
-      <body className={`${inter.variable} ${oswald.variable} antialiased bg-black text-white`}>
+      <body className={`${inter.variable} ${montserrat.variable} antialiased bg-black text-white`}>
         {children}
       </body>
     </html>
