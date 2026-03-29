@@ -4,12 +4,12 @@ import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
 });
 
 const oswald = Oswald({
   variable: "--font-oswald",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
 });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className="scroll-smooth">
-      <body className={`${inter.variable} ${oswald.variable} antialiased bg-dt-black text-dt-white`}>
+      <body className={`${inter.variable} ${oswald.variable} antialiased bg-black text-white`}>
         {children}
       </body>
     </html>

@@ -164,7 +164,7 @@ function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="font-display text-3xl font-black tracking-tight">
+            <span className="font-display text-3xl font-black tracking-tight text-white">
               DT
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">.</span>
             </span>
@@ -429,7 +429,7 @@ function ServicesSection() {
           className="text-center mb-20"
         >
           <span className="text-orange-500 font-semibold tracking-widest uppercase text-sm">Was dich erwartet</span>
-          <h2 className="font-display text-5xl md:text-7xl font-black mt-4">
+          <h2 className="font-display text-5xl md:text-7xl font-black mt-4 text-white">
             MEINE <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">LEISTUNGEN</span>
           </h2>
         </motion.div>
@@ -508,7 +508,7 @@ function TransformationSection() {
           className="text-center mb-20"
         >
           <span className="text-orange-500 font-semibold tracking-widest uppercase text-sm">Meine Reise</span>
-          <h2 className="font-display text-5xl md:text-7xl font-black mt-4">
+          <h2 className="font-display text-5xl md:text-7xl font-black mt-4 text-white">
             VON <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">200KG</span> ZUR BESTFORM
           </h2>
         </motion.div>
@@ -668,7 +668,7 @@ function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="text-orange-500 font-semibold tracking-widest uppercase text-sm">Über mich</span>
-            <h2 className="font-display text-5xl md:text-6xl font-black mt-4 mb-6">
+            <h2 className="font-display text-5xl md:text-6xl font-black mt-4 mb-6 text-white">
               DEIN COACH.<br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">DEIN PARTNER.</span>
             </h2>
@@ -743,7 +743,7 @@ function CTASection() {
           transition={{ duration: 0.8 }}
         >
           <span className="text-orange-500 font-semibold tracking-widest uppercase text-sm">Starte jetzt</span>
-          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-black mt-4 mb-6">
+          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-black mt-4 mb-6 text-white">
             BEREIT FÜR DEINE<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 animate-gradient">TRANSFORMATION?</span>
           </h2>
