@@ -288,11 +288,11 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-display text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] mb-6"
         >
-          <span className="block">DEIN</span>
+          <span className="block text-white">DEIN</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 animate-gradient">
             KÖRPER
           </span>
-          <span className="block text-zinc-500">DEIN POTENZIAL</span>
+          <span className="block text-zinc-400">DEIN POTENZIAL</span>
         </motion.h1>
 
         <motion.p
@@ -367,7 +367,7 @@ function HeroSection() {
               variants={fadeInUp}
               className="text-center"
             >
-              <p className="font-display text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500">
+              <p className="font-display text-4xl md:text-5xl font-black text-white">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </p>
               <p className="text-sm text-zinc-500 mt-1">{stat.label}</p>
